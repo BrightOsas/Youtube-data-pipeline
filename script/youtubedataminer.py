@@ -35,7 +35,7 @@ def main():
                 type='channel',
                 q='',
                 order='relevance',
-                maxResults=50,
+                maxResults=100,
                 publishedAfter=start_date,
                 publishedBefore=end_date,
                 pageToken=next_page_token
@@ -87,8 +87,8 @@ def main():
     snippet_df = channel_df[['channelid', 'channeltitle', 'channeldescription', 'channelpublishedat', 'defaultlanguage', 'channelcountry','topicCategories']]
     statistics_df = channel_df[['channelid', 'viewcounts', 'subscribercounts', 'videocounts', 'hiddensubscribescount']]
 
-    snippet_df.to_csv('snippet_dataall2.csv', index=False)
-    statistics_df.to_csv('statistics_dataall2.csv', index=False)
+    snippet_df.to_csv('snippet_datafebnew2.csv', index=False)
+    statistics_df.to_csv('statistics_datafebnew2.csv', index=False)
 
 if __name__ == "__main__":
     main()
