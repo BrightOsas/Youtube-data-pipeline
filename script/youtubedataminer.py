@@ -47,7 +47,7 @@ def main():
 
                 # Execute another request to retrieve channel details
                 channel_response = youtube.channels().list(
-                    part='snippet,statistics,topicDetails',
+                    part='snippet,statistics',
                     id=channel_id
                 ).execute()
 
@@ -65,7 +65,6 @@ def main():
                     'subscribercounts': channel_details['statistics'].get('subscriberCount', 0),
                     'videocounts': channel_details['statistics'].get('videoCount', 0),
                     'hiddensubscribescount': channel_details['statistics'].get('hiddenSubscriberCount', 0),
-                    'topicCategories':channel_details['topicDetails'].get('topicCategories',0)
                 })
 
             # Check if there are more pages of results
@@ -84,7 +83,7 @@ def main():
     channel_df = pd.DataFrame(channel_data_list)
 
     # Separate DataFrames
-    snippet_df = channel_df[['channelid', 'channeltitle', 'channeldescription', 'channelpublishedat', 'defaultlanguage', 'channelcountry','topicCategories']]
+    snippet_df = channel_df[['channelid', 'channeltitle', 'channeldescription', 'channelpublishedat', 'defaultlanguage', 'channelcountry']]
     statistics_df = channel_df[['channelid', 'viewcounts', 'subscribercounts', 'videocounts', 'hiddensubscribescount']]
 
     snippet_df.to_csv('snippet_datafebnew2.csv', index=False)
