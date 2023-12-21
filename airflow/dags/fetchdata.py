@@ -71,11 +71,11 @@ def getsnippet():
                 channel_details = channel_response['items'][0]
 
                 channel_data_list.append({
-                    'channelid': channel_id,
-                    'channeltitle': channel_details['snippet']['title'],
-                    'channeldescription': channel_details['snippet']['description'],
-                    'channelpublishedat': channel_details['snippet']['publishedAt'],
-                    'channelcountry': channel_details['snippet'].get('country', ''),
+                    'id': channel_id,
+                    'title': channel_details['snippet']['title'],
+                    'description': channel_details['snippet']['description'],
+                    'publishedate': channel_details['snippet']['publishedAt'],
+                    'country': channel_details['snippet'].get('country',''),
                 })
 
     except HttpError as e:
@@ -84,8 +84,12 @@ def getsnippet():
     print(f"Total channels processed: {len(channel_data_list)}")
 
     channel_df = pd.DataFrame(channel_data_list)
+    channel_df['publishedate'] = pd.to_datetime(channel_df['publishedate']).dt.strftime('%Y-%m-%d %H:%M:%S')
+    channel_df['description'] = channel_df['description'].str[:150]
+    channel_df['title'] = channel_df['title'].str[:150]
 
-    snippetdata = channel_df[['channelid', 'channeltitle', 'channeldescription', 'channelpublishedat', 'channelcountry']]
+
+    snippetdata = channel_df[['id', 'title', 'description', 'publishedate', 'country']]
     snippetdata.to_csv("snippetdata.csv", index= False )
 
     if __name__ == "__main__":
@@ -113,7 +117,7 @@ def getstat():
                 channel_details = channel_response['items'][0]
 
                 channel_data_list.append({
-                    'channelid': channel_id,
+                    'id': channel_id,
                     'viewcounts': channel_details['statistics'].get('viewCount', 0),
                     'subscribercounts': channel_details['statistics'].get('subscriberCount', 0),
                     'videocounts': channel_details['statistics'].get('videoCount', 0),
@@ -126,7 +130,7 @@ def getstat():
 
     channel_df = pd.DataFrame(channel_data_list)
 
-    statdata = channel_df[['channelid', 'viewcounts','subscribercounts','videocounts']]
+    statdata = channel_df[['id', 'viewcounts','subscribercounts','videocounts']]
     statdata.to_csv("statdata.csv", index= False )
 
 if __name__ == "__main__":
