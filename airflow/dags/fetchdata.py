@@ -7,7 +7,7 @@ from googleapiclient.errors import HttpError
 
 def getnewchannelid():
 
-    api_key = os.getenv("API_KEY1")
+    api_key = os.getenv("CHANNEL_API_KEY")
     youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=api_key)
 
     current_date = datetime.now()
@@ -54,7 +54,7 @@ def getsnippet():
     channel_ids_list = pd.read_csv("channel_ids.csv")
     channel_ids_list = channel_ids_list['channelid'].tolist()
 
-    api_key = os.getenv("API_KEY2")
+    api_key = os.getenv("SNIP_API_KEY")
     youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=api_key)
 
     channel_data_list = []
@@ -73,7 +73,6 @@ def getsnippet():
                 channel_data_list.append({
                     'id': channel_id,
                     'title': channel_details['snippet']['title'],
-                    'description': channel_details['snippet']['description'],
                     'publishedate': channel_details['snippet']['publishedAt'],
                     'country': channel_details['snippet'].get('country',''),
                 })
@@ -85,11 +84,10 @@ def getsnippet():
 
     channel_df = pd.DataFrame(channel_data_list)
     channel_df['publishedate'] = pd.to_datetime(channel_df['publishedate']).dt.strftime('%Y-%m-%d %H:%M:%S')
-    channel_df['description'] = channel_df['description'].str[:150]
-    channel_df['title'] = channel_df['title'].str[:150]
+    channel_df['title'] = channel_df['title'].str[:100]
 
 
-    snippetdata = channel_df[['id', 'title', 'description', 'publishedate', 'country']]
+    snippetdata = channel_df[['id', 'title', 'publishedate', 'country']]
     snippetdata.to_csv("snippetdata.csv", index= False )
 
     if __name__ == "__main__":
@@ -101,7 +99,7 @@ def getstat():
     channel_ids_list = pd.read_csv("channel_ids.csv")
     channel_ids_list = channel_ids_list['channelid'].tolist()
 
-    api_key = os.getenv("API_KEY3")
+    api_key = os.getenv("STAT_API_KEY")
     youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=api_key)
 
     channel_data_list = []
