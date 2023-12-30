@@ -1,5 +1,14 @@
+import os
 import pandas as pd
+from sqlalchemy import create_engine
 from airflow.providers.postgres.hooks.postgres import PostgresHook
+
+host = os.getenv("HOST")
+port = os.getenv("PORT")
+user = os.getenv("USER")
+password = os.getenv("PASSWORD")
+db = os.getenv("DB")
+pg_table = os.getenv("TABLE")
 
 def dbconnectiontest():
     #Confirm database is running and accepting connections
@@ -12,22 +21,16 @@ def dbconnectiontest():
         print("PostgreSQL connection failed:", str(e))
         raise
 
-    
+
+
 def appendnewchannelid():
+    # Read data from the CSV file into a DataFrame
+    channel_df = pd.read_csv('channel_df.csv')
 
-    pg_schema = 'public'
-    pg_table = 'channels'
+    engine = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{db}")
 
-    channel_df = pd.read_csv("newchannels.csv")
-    hook = PostgresHook(postgres_conn_id='postgrescon')
-    con = hook.get_conn()
-
-    #Append new channels fetched to exisiting channels table
-    query = f"INSERT INTO {pg_schema}.{pg_table} SELECT * FROM channels"
-
-    cursor = con.cursor()
-    cursor.execute(query)
-    con.commit()
+    # Append new channels fetched to the existing channels table
+    channel_df.to_sql(con=engine, name=pg_table, if_exists='append', index=False)
     
 if __name__ == "__main__":
     appendnewchannelid()
@@ -39,8 +42,7 @@ def getallchannelid():
     con = hook.get_conn()
 
     # Fetch channelids from the database
-    pg_table = 'channels'
-    query = f"SELECT * FROM {pg_table} limit 10"
+    query = f"SELECT * FROM {pg_table}"
     channel_ids_df = pd.read_sql(query, con)
     channel_ids_df.drop_duplicates(inplace = True)
     channel_ids_df.to_csv("channel_ids.csv", index=False)
@@ -49,6 +51,11 @@ def getallchannelid():
 
 if __name__ == "__main__":
     getallchannelid()
+
+
+
+
+
 
 
 
