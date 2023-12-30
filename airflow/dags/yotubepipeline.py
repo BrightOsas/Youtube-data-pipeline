@@ -15,7 +15,7 @@ with DAG(
     dag_id = 'youtubepipeline',
     default_args=default_args,
     description = 'youtube data pipeline',
-    start_date=datetime(2023, 12, 1),
+    start_date=datetime(2023, 12, 24),
     schedule_interval='@daily',
     catchup=False,
 
