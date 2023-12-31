@@ -1,0 +1,67 @@
+version: 2
+
+sources:
+  - name: staging
+    database: youtubedb
+    schema: public
+
+    tables:
+      - name: channelsnippet
+      - name: channelstat
+
+models:
+  - name: snippet
+    description: >
+      The 'channelsnippet' model provides valuable insights into a YouTube channel's key details, including its title, country of origin, and creation date.
+    columns:
+      - name: id
+        description: >
+          Primary key for this table, representing the unique identifier assigned to the channel by YouTube. Ensures data integrity and uniqueness.
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: title
+        description: >
+          The title or name of the channel, serving as a convenient reference for easy identification.
+
+      - name: publishedate
+        description: >
+          The date when the channel was created, with the timestamp dependent on the region where the channel originated.
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: country
+        description: >
+          The country associated with the channel, as provided by the channel's creator or owner.
+        tests:
+          - relationships:
+              field: id
+              to: ref('country')
+              severity: warn
+
+  - name: stats
+    description: >
+      The 'channelstat' model offers insights into a YouTube channel's statistical metrics, including total views, subscribers, and the number of videos uploaded.
+    columns:
+      - name: id
+        description: >
+          Primary key for this table, representing the unique identifier assigned to the channel by YouTube. Ensures data integrity and uniqueness.
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: videos
+        description: >
+          The total number of videos uploaded by the user, providing an indication of the channel's content production.
+
+      - name: views
+        description: >
+          The total number of views accumulated by the user from the videos posted, reflecting the channel's overall popularity.
+
+      - name: subscribers
+        description: >
+          The total number of users who have subscribed to this channel, serving as a key indicator of the channel's audience engagement and reach.
