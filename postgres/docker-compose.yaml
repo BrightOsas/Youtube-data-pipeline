@@ -1,0 +1,25 @@
+services:
+  pgdatabase:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=youtubedb
+    volumes:
+      - "C:/Users/dbrig/Documents/dataengine/youtubeproject/Youtube-data-pipeline/postgresql/youtube-postgresdata:/var/lib/postgresql/data:rw"
+    ports:
+      - "5432:5432"
+    networks:
+      - airflow
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8081:80" 
+networks:
+  airflow:
+    external: true
+    name: airflow_default
+
