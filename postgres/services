@@ -1,0 +1,12 @@
+
+CSV_PATH="channelid.csv"
+docker run -it \
+  --network=airflow_network \
+  dataingest \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=youtubedb \
+  --table=channels \
+  --csv_path=${CSV_PATH}
