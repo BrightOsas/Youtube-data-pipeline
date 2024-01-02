@@ -4,16 +4,27 @@
 
 ## Introduction
 
-Welcome to my Youtube Data Engineering Project where i would be sharing insight on Youtube channels created in the year 2023,how this channels have developed over the year. this project is also a way for me to showcase my knowlege with big data tools and leveraging them to derive insight and foster effective data collection and transisition.
+Welcome to my YouTube Data Engineering Project. In this initiative, I will be providing valuable insights into YouTube channels created in the year 2023, delving into their development over the course of the year. This project serves as a platform for me to showcase my expertise in utilizing advanced big data tools. By leveraging these tools, I aim to derive meaningful insights, facilitate efficient data collection, and ensure a seamless transition in the realm of data analytics. Join me as we explore the intricate dynamics of YouTube channel evolution through the lens of data engineering.
 
-## Objective
 
 ## Overview
-YouTube is an American online video sharing and social media platform owned by Google. Accessible worldwide, it is the second most visited website after google. Every minute, there’s 694,000 hours of video being streamed on YouTube, over the years it has become a source of income to many. A Youtuber is a person who creates and posts content for the video-sharing platform YouTube YouTubers make money in many ways If we only consider income from YouTube’s Partner program, YouTubers earn an average of $18 per 1,000 views, once they meet the eligibility requirements, such as having at least 1,000 subscribers and 4,000 watch hours in the past 12 months. in this project i would be focusing on yiutubers who started their youtube channels in the year 2023 and how far they have faired. youtube is a great place money can be made by youtubers but let;s not forget the strugle for new commers in every business.
+YouTube is an American online video-sharing and social media platform that is owned by Google. Accessible globally, it stands as the second most visited website, surpassed only by Google itself. Every minute witnesses an astonishing 694,000 hours of video being streamed on YouTube, establishing it as a significant medium. Over the years, YouTube has evolved into a lucrative source of income for many individuals. A "YouTuber" is an individual who engages in the creation and dissemination of content on the YouTube platform.
+
+The financial remuneration for YouTubers is diverse, emanating from various channels. If we exclusively consider earnings from YouTube's Partner Program, YouTubers accrue an average of $18 per 1,000 views. However, this is contingent upon meeting eligibility criteria, including a minimum of 1,000 subscribers and 4,000 watch hours within the preceding 12 months.
+
+This project will specifically concentrate on YouTubers who initiated their channels in the year 2023, delving into their progress and achievements. While YouTube serves as a platform where substantial financial gains can be realized by content creators, it is imperative to acknowledge the inherent challenges faced by newcomers in every entrepreneurial endeavor.
 
 ## Architecture
-Using Youtube API, new channels are extracted, save to a postgres database, channelid data is extracted and sent back to youtube to retrieve channel updated statistics and snippet, collected data is sent to an AWS S3 bucket where a lambda function is triggered to upload the data to an AWS Redshift Serverless Data warehouse, DBt cloud is scheduled to run weekly to transform the data and then reload back to a Redshift Serverless Database, the data is then visualize on data studion.
+This architectural framework ensures a streamlined, automated, and scalable approach to handling YouTube channel data, from its extraction to transformation and final visualization.
 
+* YouTube API Integration: New channels are extracted using the YouTube AP
+* PostgreSQL Database: Extracted data is stored in a PostgreSQL database
+* YouTube Data Update: Channel ID data is extracted and sent back to YouTube to retrieve updated statistics and snippet information
+* AWS S3 Storage: Collected data is seamlessly transmitted to an AWS S3 bucket
+* AWS Lambda Function: A Lambda function is triggered upon data arrival in the S3 bucket, initiating the upload of data to an AWS Redshift Serverless Data Warehouse
+* DBt Cloud for Data Transformation: Scheduled weekly, DBt Cloud runs transformation processes on the data
+* Redshift Serverless Database Reload: Transformed data is reloaded back into the Redshift Serverless Database
+* Data Visualization on Data Studio: The finalized data is then visualized on Data Studio
 
 ## Result
 
