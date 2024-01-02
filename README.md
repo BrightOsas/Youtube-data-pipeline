@@ -11,6 +11,11 @@ Welcome to my Youtube Data Engineering Project where i would be sharing insight 
 ## Overview
 YouTube is an American online video sharing and social media platform owned by Google. Accessible worldwide, it is the second most visited website after google. Every minute, there’s 694,000 hours of video being streamed on YouTube, over the years it has become a source of income to many. A Youtuber is a person who creates and posts content for the video-sharing platform YouTube YouTubers make money in many ways If we only consider income from YouTube’s Partner program, YouTubers earn an average of $18 per 1,000 views, once they meet the eligibility requirements, such as having at least 1,000 subscribers and 4,000 watch hours in the past 12 months. in this project i would be focusing on yiutubers who started their youtube channels in the year 2023 and how far they have faired. youtube is a great place money can be made by youtubers but let;s not forget the strugle for new commers in every business.
 
+## Architecture
+Using Youtube API, new channels are extracted, save to a postgres database, channelid data is extracted and sent back to youtube to retrieve channel updated statistics and snippet, collected data is sent to an AWS S3 bucket where a lambda function is triggered to upload the data to an AWS Redshift Serverless Data warehouse, DBt cloud is scheduled to run weekly to transform the data and then reload back to a Redshift Serverless Database, the data is then visualize on data studion.
+
+
+## Result
 
 
 ## Technologies
