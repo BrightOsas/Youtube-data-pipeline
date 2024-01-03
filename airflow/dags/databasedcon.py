@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 
 host = os.getenv("HOST")
-port = os.getenv("PORT")
+port = int(os.getenv("PORT"))
 user = os.getenv("USER")
 password = os.getenv("PASSWORD")
 db = os.getenv("DB")
