@@ -25,7 +25,7 @@ def dbconnectiontest():
 
 def appendnewchannelid():
     # Read data from the CSV file into a DataFrame
-    channel_df = pd.read_csv('channel_df.csv')
+    channel_df = pd.read_csv('newchannels.csv')
 
     engine = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{db}")
 
