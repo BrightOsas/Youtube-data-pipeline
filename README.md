@@ -17,20 +17,22 @@ This project will specifically concentrate on YouTubers who initiated their chan
 ## Architecture & Technologies
 This architectural framework ensures a streamlined, automated, and scalable approach to handling YouTube channel data, from its extraction to transformation and final visualization.
 
-* YouTube API Integration: New channels are extracted using the YouTube API
-* PostgreSQL Database: Extracted data is stored in a PostgreSQL database
-* YouTube Data Update: Channel ID data is extracted and sent back to YouTube to retrieve updated statistics and snippet information
-* AWS S3 Storage: Collected data is seamlessly transmitted to an AWS S3 bucket
-* AWS Lambda Function: A Lambda function is triggered upon data arrival in the S3 bucket, initiating the upload of data to an AWS Redshift Serverless Data Warehouse
-* DBt Cloud: Scheduled weekly, DBt Cloud runs transformation processes on the data
-* AWS Redshift Serverless Database: Transformed data is reloaded back into the Redshift Serverless Database
-* Looker Studio: The finalized data is then visualized on Data Studio
-* Docker: Containerization  
-* Apache Airflow: Orchestration   
-* Terraform: Infrastructure as Code (IaaC)  
-* Boto3: Batch Processing  
-* Python: Scripting
 
+![youtubearchitecture (1)](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/02cec5cb-f0cd-46a8-9d7b-ec637a89ddb1)
+
+1. Docker: Containerization
+2. Apache Airflow: Orchestration
+3. YouTube API Integration: New channels are extracted using YouTube API
+4. PostgreSQL Database: Extracted New channels is stored in a PostgreSQL database
+5. Data Extraction: ChannelID data is extracted from the database
+6. YouTube Data Update: Extracted Data is sent back to YouTube with YouTube API to retrieve updated statistics and snippet information
+7. Boto3: Batch Processing  of the collected data
+8. AWS S3 Storage: Collected data is transferred to an AWS S3 bucket
+9. AWS Lambda Function: A Lambda function is triggered upon data arrival in the S3 bucket
+10. AWS CloudWatch: Logging Lambda function execution and monitoring Lambda metrics
+11. AWS Redshift Serverless Database: Lambda initiates the data upload to an AWS Redshift Serverless Data Warehouse 
+12. DBt Cloud: Scheduled weekly, DBt Cloud runs transformation processes on the data
+13. Looker Studio: The finalized data is visualized on Data Studio
 
   
 ## Result
