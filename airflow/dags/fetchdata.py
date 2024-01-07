@@ -84,7 +84,6 @@ def getsnippet():
 
     channel_df = pd.DataFrame(channel_data_list)
     channel_df['publishedate'] = pd.to_datetime(channel_df['publishedate']).dt.strftime('%Y-%m-%d %H:%M:%S')
-    channel_df['title'] = channel_df['title'].str[:100]
 
 
     snippetdata = channel_df[['id', 'title', 'publishedate', 'country']]
