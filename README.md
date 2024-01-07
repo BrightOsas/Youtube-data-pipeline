@@ -38,6 +38,8 @@ This architectural framework ensures a streamlined, automated, and scalable appr
 
  
 ## Result
+![ytdb](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/d5d7b78d-b599-445e-9757-0cf098087bdb)
+
 
 ## contact
 * [Bright Osarenren](linkedin.com/in/brightosas)
