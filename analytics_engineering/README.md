@@ -1,15 +1,14 @@
-Welcome to your new dbt project!
+Welcome to my youtube-data-pipeline dbt project!
 
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
+![dbt1](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/80015563-84d5-49db-8bf9-3db536038088)  
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](https://getdbt.com/community) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Lineage graph
+![dbt4](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/629c5641-130e-4e51-ab07-9d04984ffa61)  
+
+DBT Scheduler
+![dbt2](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/13e59071-9ca7-420f-930e-235dc9e01f3d)  
+
+DBT Documentation
+![dbt5](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/18876cea-0249-4410-bfeb-233a8a4bd79d)
+
