@@ -1,5 +1,4 @@
-# /venv
-/venv
+# .gitignore
 
-# .env
+# Ignore the .env file
 .env
