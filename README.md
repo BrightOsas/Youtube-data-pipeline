@@ -34,7 +34,32 @@ This architectural framework ensures a streamlined, automated, and scalable appr
 10. AWS CloudWatch: Logging Lambda function execution and monitoring Lambda metrics.  
 11. AWS Redshift Serverless Database: Lambda initiates the data upload to an AWS Redshift Serverless Data Warehouse.  
 12. DBt Cloud: Scheduled weekly, DBt Cloud runs transformation processes on the data.  
-13. Looker Studio: The finalized data is visualized on Data Studio.  
+13. Looker Studio: The finalized data is visualized on Data Studio.
+
+
+## How to Run the pipeline
+* cd ./airflow
+* docker-compose up -d
+* cd ./postgres
+* docker-compose up -d
+
+-- Airflow Dags TreeView 
+![airflow1](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/20afb423-411f-44bd-8747-62e826954f4c)  
+
+-- AWS Lambda Task  
+Cloudwatch logs  
+![statcdwatch](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/88d21c9b-e28b-4340-976b-a0a1c6006fd4)
+![snippetcloudwatch](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/0897952a-802e-44cc-b442-50c4396c7a18)  
+
+-- DBT Jobs  
+Lineage graph
+![dbt4](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/629c5641-130e-4e51-ab07-9d04984ffa61)  
+
+DBT Scheduler
+![dbt2](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/13e59071-9ca7-420f-930e-235dc9e01f3d)  
+
+DBT Documentation
+![dbt5](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/18876cea-0249-4410-bfeb-233a8a4bd79d)
 
  
 ## Result
@@ -50,11 +75,6 @@ To be eligible for YouTube's Partner Program, a YouTube channel must have a mini
 * Docker desktop
 * AWS account
 
-## How to Run the pipeline
-* cd ./airflow
-* docker-compose up -d
-* cd ./postgres
-* docker-compose up -d
 
 ## contact
 * [Bright Osarenren](linkedin.com/in/brightosas)
