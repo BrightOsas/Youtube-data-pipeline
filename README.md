@@ -43,8 +43,18 @@ This architectural framework ensures a streamlined, automated, and scalable appr
 To be eligible for YouTube's Partner Program, a YouTube channel must have a minimum of 1000 subscribers and 4,000 watch hours within the preceding 12 months. Excluding the 12-month criteria, let's analyze the percentage of channels from each month with over 1,000 subscribers and 4,000 watch hours.  
 ![newcrit](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/bb2473fa-7278-4e33-b126-cec4fbdc8dcf)
 
+## Requirement
+* To search for a channel using the channel ID 'youtube.com/channel/channel_id'   
+* [Follow this link to read about the YouTube API](https://developers.google.com/youtube/v3/docs/)  
+* [Follow this link to obtain a YouTube API key](https://console.cloud.google.com/apis)  
+* Docker desktop
+* AWS account
 
-
+## How to Run the pipeline
+* cd ./airflow
+* docker-compose up -d
+* cd ./postgres
+* docker-compose up -d
 
 ## contact
 * [Bright Osarenren](linkedin.com/in/brightosas)
