@@ -37,7 +37,7 @@ This architectural framework ensures a streamlined, automated, and scalable appr
 13. Looker Studio: The finalized data is visualized on Data Studio.
 
 
-## How to Run the pipeline
+## How to run the pipeline
 * cd ./airflow
 * docker-compose up -d
 * cd ./postgres
