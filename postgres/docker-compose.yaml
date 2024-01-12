@@ -6,7 +6,7 @@ services:
       - POSTGRES_PASSWORD=${PG_PASSWORD}
       - POSTGRES_DB=${PG_DATABASE}
     volumes:
-      - "C:/Users/dbrig/Documents/dataengine/youtubeproject/Youtube-data-pipeline/postgresql/youtube-postgresdata:/var/lib/postgresql/data:rw"
+      - "./youtubeproject/Youtube-data-pipeline/postgresql/youtube-postgresdata:/var/lib/postgresql/data:rw"
     ports:
       - "5432:5432"
     networks:
