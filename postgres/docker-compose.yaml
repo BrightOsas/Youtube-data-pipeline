@@ -2,9 +2,9 @@ services:
   pgdatabase:
     image: postgres:13
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=youtubedb
+      - POSTGRES_USER=${PG_HOST}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_DB=${PG_DATABASE}
     volumes:
       - "C:/Users/dbrig/Documents/dataengine/youtubeproject/Youtube-data-pipeline/postgresql/youtube-postgresdata:/var/lib/postgresql/data:rw"
     ports:
@@ -14,8 +14,8 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASS}
     ports:
       - "8081:80" 
 networks:
