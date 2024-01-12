@@ -1,1 +1,16 @@
-
+PG_HOST=
+PG_USER=
+PG_PASSWORD=
+PG_PORT=5432
+PG_DATABASE=
+PG_TABLE=
+API_KEY1="Youtube api key to retrieve channelIDs"
+API_KEY2="Youtube api key to retrieve channel snippet"
+API_KEY3="Youtube api key to retrieve channel stats"
+aws_access_key_id=
+aws_secret_access_key=
+AWS_DB_HOST=
+AWS_DB=
+AWS_DB_USER=
+AWS_DB_PASSWORD=
+AWS_TABLE=
