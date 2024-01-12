@@ -75,9 +75,9 @@ services:
   postgres:
     image: postgres:13
     environment:
-      POSTGRES_USER: 
-      POSTGRES_PASSWORD: 
-      POSTGRES_DB: 
+      POSTGRES_USER: '${AIRFLOW_USER}'
+      POSTGRES_PASSWORD: '${AIRFLOW_PASSWORD}'
+      POSTGRES_DB: '${AIRFLOW_DB}'
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
     #ports:
