@@ -69,7 +69,6 @@ To be eligible for YouTube's Partner Program, a YouTube channel must have a mini
 ![newcrit](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/bb2473fa-7278-4e33-b126-cec4fbdc8dcf)
 
 ## Requirement
-* To search for a channel using the channel ID 'youtube.com/channel/channel_id'   
 * [Follow this link to read about the YouTube API](https://developers.google.com/youtube/v3/docs/)  
 * [Follow this link to obtain a YouTube API key](https://console.cloud.google.com/apis)  
 * Docker desktop
