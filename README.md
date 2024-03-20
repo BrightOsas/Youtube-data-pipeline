@@ -63,6 +63,9 @@ DBT Documentation
 
  
 ## Result
+[Link To Dashboard](https://lookerstudio.google.com/reporting/bebf032d-2c91-440c-bbb5-b2b7b1950cc5)  
+
+  
 ![ytdb](https://github.com/BrightOsas/Youtube-data-pipeline/assets/98474404/d5d7b78d-b599-445e-9757-0cf098087bdb)
 
 To be eligible for YouTube's Partner Program, a YouTube channel must have a minimum of 1000 subscribers and 4,000 watch hours within the preceding 12 months. Excluding the 12-month criteria, let's analyze the percentage of channels from each month with over 1,000 subscribers and 4,000 watch hours.  
